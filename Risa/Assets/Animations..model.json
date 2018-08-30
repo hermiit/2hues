@@ -1,0 +1,16 @@
+{
+   "Name": "Animations",
+   "ClassName": "Folder",
+   "Children": [
+      {
+         "Name": "stafflock1",
+         "ClassName": "Animation",
+         "Properties": {
+            "AnimationId": {
+               "Type": "String",
+               "Value": "rbxassetid://2291432474"
+            }
+         }
+      }
+   ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "2hues",
+  "servePort": 8000,
+  "partitions": {
+    "Risa": {
+      "path": "Risa",
+      "target": "StarterPack.Risa"
+    }
+  }
+}
