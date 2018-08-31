@@ -11,7 +11,7 @@ local function ToggleP(ins)
    ins.Enabled = not ins.Enabled
 end
 
-
+--// Main
 initremote.OnServerEvent:Connect(function(plr,arm,hand)
    local motor = Instance.new("Motor6D")
    motor.C0 = CFrame.new(
