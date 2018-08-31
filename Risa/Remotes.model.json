@@ -1,0 +1,14 @@
+{
+   "Name": "Remotes",
+   "ClassName": "Folder",
+   "Children": [
+      {
+         "Name": "ToggleRemote",
+         "ClassName": "RemoteEvent"
+      },
+      {
+         "Name": "WeldRemote",
+         "ClassName": "RemoteEvent"
+      }
+   ]
+}
