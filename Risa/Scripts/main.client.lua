@@ -6,7 +6,7 @@ local CProvide = game:GetService("ContentProvider")
 --// Variables
 local root = script.Parent.Parent
 local models = root:WaitForChild("Models")
-local staff = models:WaitForChild("mari2")
+local staff = models:WaitForChild("Maristaff2")
 local plr = game.Players.LocalPlayer
 local char = workspace:WaitForChild(plr.Name)
 
