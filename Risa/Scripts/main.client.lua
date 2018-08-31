@@ -7,8 +7,11 @@ local CProvide = game:GetService("ContentProvider")
 local root = script.Parent.Parent
 local models = root:WaitForChild("Models")
 local staff = models:WaitForChild("Maristaff2")
+
+--/ Player
 local plr = game.Players.LocalPlayer
 local char = workspace:WaitForChild(plr.Name)
+local hum = char:WaitForChild("Humanoid")
 
 --/ Global
 cool = math.rad
@@ -26,11 +29,28 @@ local assets = assetfldr:GetDescendants()
 CProvide:PreloadAsync(assets)
 print(sfor("Assets loaded for %s",plr.Name))
 
+--// Animations
+local anims = assets.Animations
+local idleU = hum:LoadAnimation(anims:WaitForChild("idle(U)"))
+local Xcharge = hum:LoadAnimation(anims:WaitForChild("shotcharge"))
+
 --// Remotes
 local remotepath = root:WaitForChild("Remotes")
 local initremote = remotepath:WaitForChild("WeldRemote")
 
+--// Functions
+goodfuncs = {
+   moveyobody = function(spd)
+      if spd < 0.05 then
+         idleU:Play()
+      else
+         idleU:Stop()
+      end
+   end
+}
 --// Main
 local armw = char:WaitForChild("Right Arm")
 initremote:FireServer(armw,staff.Handle)
 local armjoint = armw:WaitForChild("StaffJoint")
+
+hum.Running:Connect()

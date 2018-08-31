@@ -3,12 +3,22 @@
    "ClassName": "Folder",
    "Children": [
       {
-         "Name": "stafflock1",
+         "Name": "shotcharge",
          "ClassName": "Animation",
          "Properties": {
             "AnimationId": {
                "Type": "String",
                "Value": "rbxassetid://2291432474"
+            }
+         }
+      },
+      {
+         "Name": "idle(U)",
+         "ClassName": "Animation",
+         "Properties": {
+            "AnimationId": {
+               "Type": "String",
+               "Value": "rbxassetid://02294014616"
             }
          }
       }

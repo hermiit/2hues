@@ -7,7 +7,7 @@ local togremote = remotepath:WaitForChild("ToggleRemote")
 local initremote = remotepath:WaitForChild("WeldRemote")
 
 --// Local Functions
-local function ToggleP(ins)
+local function ToggleP(plr,ins)
    ins.Enabled = not ins.Enabled
 end
 
@@ -30,8 +30,9 @@ initremote.OnServerEvent:Connect(function(plr,arm,hand)
    motor.Part1 = hand
    motor.Name = "StaffJoint"
    motor.Parent = arm
+   local animateold = plr.Character:WaitForChild("Animate")
+   animateold.Disabled = true
+   animateold:Destroy()
 end)
 
-togremote.OnServerEvent:Connect(function(plr,ins)
-   ToggleP(ins)
-end)
+togremote.OnServerEvent:Connect(ToggleP)
