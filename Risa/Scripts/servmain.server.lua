@@ -1,7 +1,15 @@
+--// Variables
+local root = script.Parent.Parent
+
 --// Remotes
 local remotepath = root:WaitForChild("Remotes")
 local togremote = remotepath:WaitForChild("ToggleRemote")
 local initremote = remotepath:WaitForChild("WeldRemote")
+
+--// Local Functions
+local function ToggleP(ins)
+   ins.Enabled = not ins.Enabled
+end
 
 
 initremote.OnServerEvent:Connect(function(plr,arm,hand)
@@ -22,4 +30,8 @@ initremote.OnServerEvent:Connect(function(plr,arm,hand)
    motor.Part1 = hand
    motor.Name = "StaffJoint"
    motor.Parent = arm
+end)
+
+togremote.OnServerEvent:Connect(function(plr,ins)
+   ToggleP(ins)
 end)

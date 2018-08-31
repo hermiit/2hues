@@ -15,4 +15,5 @@ local initremote = remotepath:WaitForChild("WeldRemote")
 
 --// Main
 local armw = char:WaitForChild("Right Arm")
+initremote:FireServer(armw,staff.Handle)
 local armjoint = armw:WaitForChild("StaffJoint")
