@@ -38,7 +38,7 @@ print(sfor("Assets loaded for %s",plr.Name))
 
 --// Animations
 local anims = assetfldr:WaitForChild("Animations")
-local idleU = hum:LoadAnimation(anims:WaitForChild("idle(U)"))
+local idleU = hum:LoadAnimation(anims:WaitForChild("idleS"))
 local Xcharge = hum:LoadAnimation(anims:WaitForChild("shotcharge"))
 
 --// Remotes
@@ -46,11 +46,11 @@ local remotepath = root:WaitForChild("Remotes")
 local initremote = remotepath:WaitForChild("WeldRemote")
 
 --// Functions
-animfuncs = {
+local animfuncs = {
    moveyobody = function(spd)
       if spd < 0.05 then
          idleU:Play()
-      else
+      elseif hum:GetState() == Enum.HumanoidStateType.Jumping or spd > 0.05 then
          idleU:Stop()
       end
    end
@@ -60,4 +60,11 @@ local armw = char:WaitForChild("Right Arm")
 initremote:FireServer(armw,staff.Handle)
 local armjoint = armw:WaitForChild("StaffJoint")
 
-hum.Running:Connect(goodfuncs["moveyobody"])
+hum.Running:Connect(animfuncs.moveyobody)
+
+uis.InputBegan:Connect(function(iobj,gp)
+   if gp then return end
+   if iobj.KeyCode == Enum.KeyCode.Ctrl then
+
+   end
+end)

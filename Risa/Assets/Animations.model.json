@@ -13,12 +13,22 @@
          }
       },
       {
-         "Name": "idle(U)",
+         "Name": "idleS",
          "ClassName": "Animation",
          "Properties": {
             "AnimationId": {
                "Type": "String",
                "Value": "rbxassetid://02294014616"
+            }
+         }
+      },
+      {
+         "Name": "idleC",
+         "ClassName": "Animation",
+         "Properties": {
+            "AnimationId": {
+               "Type": "String",
+               "Value": "rbxassetid://02295239567"
             }
          }
       }
