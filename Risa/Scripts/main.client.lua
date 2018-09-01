@@ -13,6 +13,13 @@ local plr = game.Players.LocalPlayer
 local char = workspace:WaitForChild(plr.Name)
 local hum = char:WaitForChild("Humanoid")
 
+local function plrinit()
+   hum.WalkSpeed = 26
+   hum.JumpPower = 65
+end
+
+plrinit()
+
 --/ Global
 cool = math.rad
 sine = math.sin
@@ -30,7 +37,7 @@ CProvide:PreloadAsync(assets)
 print(sfor("Assets loaded for %s",plr.Name))
 
 --// Animations
-local anims = assets.Animations
+local anims = assetfldr:WaitForChild("Animations")
 local idleU = hum:LoadAnimation(anims:WaitForChild("idle(U)"))
 local Xcharge = hum:LoadAnimation(anims:WaitForChild("shotcharge"))
 
@@ -39,7 +46,7 @@ local remotepath = root:WaitForChild("Remotes")
 local initremote = remotepath:WaitForChild("WeldRemote")
 
 --// Functions
-goodfuncs = {
+animfuncs = {
    moveyobody = function(spd)
       if spd < 0.05 then
          idleU:Play()
@@ -53,4 +60,4 @@ local armw = char:WaitForChild("Right Arm")
 initremote:FireServer(armw,staff.Handle)
 local armjoint = armw:WaitForChild("StaffJoint")
 
-hum.Running:Connect()
+hum.Running:Connect(goodfuncs["moveyobody"])
